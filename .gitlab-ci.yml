@@ -141,7 +141,7 @@ components make snapshot references:
 # Suite web package # --------------------------------
 
 suite-web lint:
-  stage: lint
+  stage: test
   only:
     changes:
       - packages/suite/**/*
