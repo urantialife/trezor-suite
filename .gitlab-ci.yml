@@ -12,6 +12,7 @@ before_script:
 
 stages:
   - install
+  - test
   - build
   - deploy
   - test snapshots
@@ -34,6 +35,20 @@ variables:
   DEV_SERVER_URL: 'https://suite-dev.sldev.cz'
 
 # Components package # --------------------------------
+
+components lint:
+  stage: test
+  script:
+    - env
+    - cd ${PACKAGE_PATH_COMPONENTS}
+    - echo "--- [installing deps] ---"
+    - yarn
+    - echo "--- [building lib] ---"
+    - yarn lint
+  only:
+    changes:
+      - packages/components/**/*
+      - .gitlab-ci.yml
 
 components build:
   stage: build
@@ -124,6 +139,21 @@ components make snapshot references:
 
 
 # Suite web package # --------------------------------
+
+suite-web lint:
+  stage: lint
+  only:
+    changes:
+      - packages/suite/**/*
+      - packages/suite-web/**/*
+      - .gitlab-ci.yml
+  variables:
+    PACKAGE_NAME: suite-web
+  script:
+    - env
+    - cd $PACKAGE_PATH_SUITE_WEB
+    - yarn
+    - yarn lint
 
 suite-web build:
   stage: build
