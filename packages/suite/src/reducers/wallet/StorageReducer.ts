@@ -1,4 +1,4 @@
-import * as STORAGE from '@wallet-actions/constants/localStorage';
+import * as STORAGE from '@wallet-actions/constants/storage';
 import { State } from '@wallet-types/index';
 
 const initialState: State = {

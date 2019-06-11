@@ -66,14 +66,3 @@ export interface State {
     ERC20Abi: [];
     tokens: any;
 }
-
-// const initialState: State = {
-//     initialized: false;
-//     error: null;
-//     config: {
-//         networks: [];
-//         fiatValueTickers: [];
-//     };
-//     ERC20Abi: [];
-//     tokens: {};
-// };
