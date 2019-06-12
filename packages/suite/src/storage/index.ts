@@ -1,3 +1,7 @@
+import { isDev } from '@suite-utils/build';
+import * as STORAGE from '@wallet-actions/contants/localStorage';
+import suiteConfig from '@suite-config/index';
+
 const VERSION = 1;
 // react-native https://facebook.github.io/react-native/docs/asyncstorage.html
 
@@ -19,8 +23,27 @@ const openDB = async () => {
     return request;
 };
 
-const load = async () => {
-    await openDB();
+const loadNetworks = async (db: IDBDatabase) => {
+    const { networks } = suiteConfig;
+    const config = {
+        networks: null,
+    };
+
+    // remove testnets from config networks
+    if (!isDev()) {
+        config.networks = networks.filter(n => !n.testnet);
+    }
+};
+
+export const init = async () => {
+    const db = await openDB();
+
+    const networks = await loadNetworks(db);
+
+    dispatch({
+        type: STORAGE.READY,
+        networks,
+    });
 
     // db.close();
 };
