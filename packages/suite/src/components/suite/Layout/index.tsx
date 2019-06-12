@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { injectIntl, InjectedIntlProps } from 'react-intl';
 
 import { fetchLocale } from '@suite-actions/languageActions.useNative';
-import { LANGUAGES } from '@suite-config/app';
+import suiteConfig from '@suite-config/index';
 import { Header as AppHeader, LanguagePicker, colors } from '@trezor/components';
 import Footer from '@suite/components/suite/Footer';
 import Log from '@suite/components/suite/Log';
@@ -58,7 +58,7 @@ const Layout = (props: Props & InjectedIntlProps) => (
             rightAddon={
                 <LanguagePicker
                     language={props.suite.language}
-                    languages={LANGUAGES}
+                    languages={suiteConfig.LANGUAGES}
                     onChange={option => {
                         props.fetchLocale(option.value);
                     }}
