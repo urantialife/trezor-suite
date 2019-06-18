@@ -7,7 +7,7 @@ cache:
     - node_modules/
 
 stages:
-  - install
+  - install deps
   - lint
   - type check
   - test
@@ -18,7 +18,7 @@ stages:
 install:
   stage: install
   image: cypress/base:10
-  stage: build
+  stage: install deps
   only:
     changes:
       - packages/components/**/*
