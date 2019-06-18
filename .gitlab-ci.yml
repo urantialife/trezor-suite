@@ -4,6 +4,7 @@ cache:
   key: "trezor-suite-cache"
   paths:
     - .yarn-cache
+    - ~/.cache
     - /root/.cache/Cypress
     - node_modules/
 
