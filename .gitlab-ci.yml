@@ -20,6 +20,8 @@ install:
   stage: install
   image: cypress/base:10
   stage: install deps
+  before_script: 
+    - yarn config set cache-folder .yarn-cache
   only:
     changes:
       - packages/components/**/*
