@@ -5,6 +5,8 @@ cache:
   paths:
     - .yarn-cache
     - cache/Cypress
+    - /builds/trezor/trezor-suite/cache/Cypress
+    - node_modules/
 
 before_script:
   - yarn install
