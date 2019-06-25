@@ -19,7 +19,7 @@ stages:
     - deploy
     - test integration
 
-install:
+install-deps:
     stage: install
     image: cypress/base:10
     only:
