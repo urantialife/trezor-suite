@@ -2,7 +2,7 @@ image: node:lts
 
 cache:
   untracked: true
-  key: shared-yarn-cache
+  key: ${CI_BUILD_REF_NAME}
   paths:
     - node_modules/
 
