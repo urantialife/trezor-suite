@@ -11,7 +11,7 @@ before_script:
     - yarn install
 
 stages:
-    - install
+    - install dependencies
     - lint
     - type check
     - test
@@ -20,7 +20,7 @@ stages:
     - test integration
 
 install-deps:
-    stage: install
+    stage: install dependencies
     image: cypress/base:10
     only:
         changes:
