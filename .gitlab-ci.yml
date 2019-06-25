@@ -1,8 +1,8 @@
 image: node:lts
 
 cache:
-  untracked: true
-  key: $CI_COMMIT_REF_NAME
+    untracked: true
+    key: $CI_COMMIT_REF_NAME
     paths:
         - node_modules/
         - cache/Cypress
